@@ -7,19 +7,37 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
 @Getter
 @Setter
+@Entity
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
     private Integer id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String email;
-    @CreationTimestamp
-    private LocalDateTime registerDate;
+    private String title;
+
+    public Person() {
+    }
+
+    public Person(Integer id, String firstName, String lastName, String email, String title) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.title = title;
+    }
+
+    public Person(String firstName, String lastName, String email, String title) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.title = title;
+    }
 
     public Integer getId() {
         return id;
@@ -29,12 +47,20 @@ public class Person {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -45,11 +71,11 @@ public class Person {
         this.email = email;
     }
 
-    public LocalDateTime getRegisterDate() {
-        return registerDate;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRegisterDate(LocalDateTime registerDate) {
-        this.registerDate = registerDate;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

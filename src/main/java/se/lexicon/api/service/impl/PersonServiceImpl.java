@@ -54,8 +54,6 @@ public class PersonServiceImpl implements PersonService {
     @Transactional(rollbackFor = {Exception.class})
     public PersonDto create(PersonDto dto) throws DataDuplicateException, DataNotFoundException {
         if (dto == null) throw new ArgumentException("Person data should not be null");
-        if (dto.getName() == null) throw new ArgumentException("name should not be null");
-        if (dto.getEmail() == null) throw new ArgumentException("email should not be null");
         if (dto.getId() != null) throw new ArgumentException("id should be null");
 
         Person entity = mapper.map(dto, Person.class);
@@ -70,8 +68,6 @@ public class PersonServiceImpl implements PersonService {
         System.out.println("dto = " + dto);
         if (dto == null) throw new ArgumentException("Person data should not be null");
         if (dto.getId() == null) throw new ArgumentException("id should not be null");
-        if (dto.getName() == null) throw new ArgumentException("name should not be null");
-        if (dto.getEmail() == null) throw new ArgumentException("email should not be null");
 
         Person entity = mapper.map(dto, Person.class);
         Person result = repository.save(entity);

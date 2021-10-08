@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @Validated
 @RequestMapping("/api/v1/person/")
+@CrossOrigin("*")
 public class PersonController {
 
     @Autowired
@@ -40,6 +41,7 @@ public class PersonController {
 
     @PostMapping
     public ResponseEntity<PersonDto> create(@RequestBody @Valid PersonDto dto) throws DataDuplicateException, DataNotFoundException {
+        System.out.println("dto = " + dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.create(dto));
     }
 
