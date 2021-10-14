@@ -13,9 +13,9 @@ public class InitData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        repository.save(new Person("Ulf","Bengtsson","ulf.bengtsson@lexicon.se","Java Teacher"));
+        repository.save(new Person("Ulf","Bengtsson","ulf.bengtsson@lexicon.se",".Net Teacher"));
         repository.save(new Person("Erik","Svensson","erik.svensson@lexicon.se","Java Teacher"));
-        repository.save(new Person("Mehrdad","Javan","mehrdad.javan@lexicon.se","Java Teacher"));
         repository.save(new Person("Simon","Elbrink","simon.elbrink@lexicon.se","Java Teacher"));
+        repository.save(new Person("Mehrdad","Javan","mehrdad.javan@lexicon.se","Java Teacher"));
     }
 }

@@ -51,6 +51,7 @@ public class RESTExceptionHandling extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(DataDuplicateException.class)
     protected ResponseEntity<Object> dataDuplicateException(DataDuplicateException ex) {
+        System.out.println("ex = " + ex.getMessage());
         return buildResponseEntity(new APIError(HttpStatus.BAD_REQUEST, ex.getMessage()));
     }
 

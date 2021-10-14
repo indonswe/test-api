@@ -55,7 +55,7 @@ public class PersonServiceImpl implements PersonService {
     public PersonDto create(PersonDto dto) throws DataDuplicateException, DataNotFoundException {
         if (dto == null) throw new ArgumentException("Person data should not be null");
         if (dto.getId() != null) throw new ArgumentException("id should be null");
-
+        if(repository.findByEmail(dto.getEmail()).isPresent()) throw new DataDuplicateException("Email is duplicate");
         Person entity = mapper.map(dto, Person.class);
         Person result = repository.save(entity);
 
