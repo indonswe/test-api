@@ -34,10 +34,10 @@ public class PersonController {
         return ResponseEntity.ok(service.findById(id));
     }
 
-    @GetMapping("search/")
+    /*@GetMapping("search/")
     public ResponseEntity<PersonDto> search(@RequestParam(name = "email") @Min(value = 1, message = "email is required") String email) throws DataNotFoundException {
         return ResponseEntity.ok(service.findByEmail(email));
-    }
+    }*/
 
     @PostMapping
     public ResponseEntity<PersonDto> create(@RequestBody @Valid PersonDto dto) throws DataDuplicateException, DataNotFoundException {
