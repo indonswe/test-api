@@ -12,7 +12,6 @@ import se.lexicon.api.exception.DataNotFoundException;
 import se.lexicon.api.service.PersonService;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import java.util.List;
 
 @RestController
@@ -20,6 +19,9 @@ import java.util.List;
 @RequestMapping("/api/v1/person/")
 @CrossOrigin("*")
 public class PersonController {
+
+    //https://www.baeldung.com/spring-rest-http-headers
+
 
     @Autowired
     PersonService service;
